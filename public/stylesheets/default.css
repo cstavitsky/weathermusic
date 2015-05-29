@@ -1,0 +1,27 @@
+body {
+    font-family: Karla, sans-serif;
+
+}
+
+#description{
+  font-size: 1.25em;
+}
+
+#musicwrapper {
+  text-align:center;
+}
+
+.about{
+  font-size: 1.5em;
+}
+
+#header{
+  text-align:center;
+}
+
+#wrapper{
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+

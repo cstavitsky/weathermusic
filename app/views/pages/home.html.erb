@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>Weather Music Playlist</title>
+  </head>
+  <body>
+  <div id="wrapper">
+      <div id="header">
+      <h1>Hello DBC Coders!</h1>
+      <p id="description">My first opensource project displays music for you to code to, which changes based on Chicago's current weather.</p>
+      </div>
+     It's currently <%= @weather_lookup.temperature %> degrees in Chicago, and <%= @weather_lookup.condition  %>! 
+      <%= image_tag @weather_lookup.icon %>
+      
+      <p>I have just the songs in mind for weather like this:</p>
+          <div id="musicwrapper">
+          <% if @weather_lookup.condition == "Chance of Rain" || @weather_lookup.condition == "Chance of Thunderstorms" || @weather_lookup.condition == "Chance of a Thunderstorm" || @weather_lookup.condition == "Chance of a Thunderstorm" ||  @weather_lookup.condition == "Rain" ||  @weather_lookup.condition == "Thunderstorms" || @weather_lookup.condition == "Thunderstorm" %> 
+                <div id="rainy"><iframe width="560" height="315" src="https://www.youtube.com/embed/PthN_eL5gq8" frameborder="0" allowfullscreen></iframe></div>
+          <% elsif @weather_lookup.condition == "Chance of Flurries" || @weather_lookup.condition == "Chance of Freezing Rain" || @weather_lookup.condition == "Chance of Snow" || @weather_lookup.condition == "Flurries" || @weather_lookup.condition == "Freezing Rain" || @weather_lookup.condition == "Snow" %>
+                <div id="snowy"><iframe width="560" height="315" src="https://www.youtube.com/embed/Zh5Qt9Y2_Ek" frameborder="0" allowfullscreen></iframe></div>
+          <% elsif @weather_lookup.temperature.to_i < 35 %>
+                <div class="winterplaylist"><iframe width="560" height="315" src="https://www.youtube.com/embed/1Ymu21cdAXE" frameborder="0" allowfullscreen></iframe></div>
+          <% elsif @weather_lookup.temperature.to_i < 60 %>
+                <div class="fallplaylist"><iframe width="560" height="315" src="https://www.youtube.com/embed/2d81Nm13UiQ" frameborder="0" allowfullscreen></iframe></div>
+          <% elsif @weather_lookup.temperature.to_i < 75 %>
+                <div class="springplaylist"><iframe width="560" height="315" src="https://www.youtube.com/embed/KK0HDTtUzJA" frameborder="0" allowfullscreen></iframe></div>
+          <% else %>
+                <div class="summerplaylist"><iframe width="420" height="315" src="https://www.youtube.com/embed/3oIUjf3xFBU" frameborder="0" allowfullscreen></iframe></div>
+          <% end %>
+      </div>
+      <div class="expl">
+          <span class="about">About</span> <br/> 
+          This is my first 'app' (is it an app?) in Rails that goes somewhat beyond a tutorial! It was built mostly with the instruction of <a href="http://blog.hungryacademy.com/blog/2012/05/03/personal-weather">this blog post 
+          on implementing a weather API</a>, and then I did the (basic) legwork of putting in some if/else statements and linking 
+          playlists from YouTube!</p></div>
+          <p>By <a href="http://cstavitsky.github.io">Chris Stavitsky</a>, web developer in training at Dev Bootcamp in the Fireflies cohort.</p>
+      </div>
+  </body>
+</html>
